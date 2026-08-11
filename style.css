@@ -73,11 +73,13 @@ img {
     top: 50%;
     transform: translatey(-50%);
     opacity: 70%;
+    overflow: hidden;
 }
 
 .background img {
     width: 100%;
     height: auto;
+    overflow: hidden;
 }
 
 .section--hero {
