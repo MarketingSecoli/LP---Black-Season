@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secoli | Black Season — Vá além do desconto</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="Imagens/Favicon.png">
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="logo-placeholder">
+        <a class="nav__link" data-scroll-to="logo" href=""><img src="Imagens/logo preto.png" alt="Logo Secoli">
+        </a>
+      </div> 
+
+      <nav class="nav">
+        <button class="nav__link" data-scroll-to="solucao">A solução</button>
+        <button class="nav__link" data-scroll-to="aplicacoes">Aplicações</button>
+        <button class="nav__link" data-scroll-to="ebook">E-book</button>
+      </nav>
+
+      <button class="btn btn--dark btn--pill btn--sm" data-scroll-to="conversao">
+        Falar com especialista
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO — Dobra 1 ===================== -->
+  <main>
+
+    <section id="hero" class="section section--hero">
+      <div class="hero__grid">
+        <div>
+          <span class="eyebrow eyebrow--dark">Black Season Secoli</span>
+
+          <h1 class="hero__title">Sua marca vale mais do que uma etiqueta de desconto.</h1>
+
+          <p class="hero__text">
+            Na Black Friday, destacar-se não depende apenas do preço. Depende da experiência que
+            sua marca cria e da lembrança que ela deixa.
+          </p>
+
+          <div class="hero__cta">
+            <button class="btn btn--light btn--pill btn--lg" data-scroll-to="conversao">
+              Quero criar uma campanha diferente
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REFLEXÃO — Dobra 2 ===================== -->
+    <section id="reflexao" class="section section--white">
+
+      <div class="reflection__wrap">
+        <h2 class="section-title section-title--center">Como sua marca quer ser lembrada?</h2>
+
+        <div class="reflection__options" id="reflection-options">
+          <!-- opções inseridas via script.js -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===================== SOLUÇÃO — Dobra 3 ===================== -->
+    <section id="solucao" class="section section--gray">
+
+      <div class="background">
+        <img src="Imagens/Prancheta 10.png" alt="background de rasgo">
+      </div>
+      <div class="solution__grid">
+        <div class="solution__image">
+          <img src="Imagens/Produto-solução.jpeg" alt="Solução para ir além do desconto, produtos promocionais personalizados">
+        </div>
+
+        <div class="solution__content">
+          <h2 class="section-title">Existe uma forma de ir além do desconto.</h2>
+          <p class="section-text">
+            Produtos promocionais personalizados transformam campanhas em experiências mais
+            memoráveis, aumentam o valor percebido da oferta e ajudam sua marca a permanecer
+            presente mesmo depois da compra.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APLICAÇÕES — Dobra 4 ===================== -->
+    <section id="aplicacoes" class="section section--white">
+
+      <div class="applications__header">
+        <div>
+          <h2 class="section-title">Aplicações para sua campanha</h2>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Próximo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel-track" id="applications-track">
+        <!-- cards inseridos via script.js -->
+      </div>
+
+      <!-- CTA + embed do catálogo -->
+      <div class="catalog-box">
+        <h3 class="catalog-box__title">Conheça nosso catálogo completo</h3>
+
+        <div class="catalog-embed">
+          <div class="catalog-embed__inner">
+            <img src="Imagens/CAPA-catálogo.jpg" alt="Capa do catálogo de black friday secoli">
+          </div>
+        </div>
+
+        <a href="#" id="btn-catalogo" class="link-catalogo">
+          <button class="btn btn--dark btn--pill btn--lg catalog-box__btn">
+          Conheça nosso catálogo completo
+          </button> 
+        </a>
+      </div>
+  </section>
+
+      <!-- Modal do catálogo --> 
+    <div id="modal-catalogo" class="modal-overlay">
+      <div class="modal-content">
+          <span class="close-modal">&times;
+
+          </span>
+          <iframe src="" id="iframe-catalogo" frameborder="0">
+
+          </iframe>
+      </div>
+  </div>
+
+    <!-- ===================== MANIFESTO — Dobra 5 ===================== -->
+    <section id="manifesto" class="section section--manifesto">
+
+      <span class="manifesto__watermark" aria-hidden="true">BF BF BF BF BF BF</span>
+
+      <div class="manifesto__wrap">
+        <h2 class="manifesto__title">
+          Na Black Friday, <span class="manifesto__highlight">destaque</span> é a melhor oferta.
+        </h2>
+      </div>
+    </section>
+
+    <!-- ===================== CONVERSÃO — Dobra 6 ===================== -->
+    <section id="conversao" class="section section--gray">
+
+      <!-- Formulário oculto apenas para o Netlify detectar os campos no build -->
+<form name="contato-secoli" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nome" />
+  <input type="email" name="email" />
+  <input type="text" name="empresa" />
+  <input type="tel" name="telefone" />
+  <select name="segmento">
+    <option value="Varejo">Varejo</option>
+  </select>
+  <select name="area">
+    <option value="Marketing">Marketing</option>
+  </select>
+  <textarea name="mensagem"></textarea>
+  <input type="text" name="bot-field" />
+</form>
+
+      <div class="conversion__grid">
+        <div class="conversion__content">
+          <h2 class="section-title">Vamos criar uma campanha que vá além do desconto?</h2>
+          <p class="section-text">
+            Conte com a Secoli para desenvolver uma estratégia personalizada e encontrar os
+            produtos ideais para tornar sua campanha mais relevante, memorável e eficiente.
+          </p>
+
+          <ul class="conversion__list">
+            <li><span class="dot"></span>Estratégia personalizada por segmento e objetivo de campanha</li>
+            <li><span class="dot"></span>Curadoria de produtos promocionais sob medida</li>
+            <li><span class="dot"></span>Suporte de especialistas do início ao fim da campanha</li>
+          </ul>
+        </div>
+
+        <div id="lead-form-conversion"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER / E-BOOK ===================== -->
+  <footer id="ebook" class="footer">
+
+    <div class="footer__grid">
+        <img src="Imagens/E-book.png" alt="E-book da secoli sobre como entrar na black friday sem cair na guerra dos preços">
+      <div class="light">
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--dark">Conteúdo gratuito</span>
+        <h2 class="footer__title">Ainda estruturando sua campanha?</h2>
+        <p class="footer__quote">"Entrar na Black Friday sem cair na guerra de preços é possível?"</p>
+        <p class="footer__text">Baixe gratuitamente nosso e-book:</p>
+
+        <a href="Assets/E-book - Guerra de Preços Black Friday.pdf" download="E-book-Guerra de-Precos.pdf" id="download-ebook" class="btn btn--light btn--pill btn--lg footer__btn">Baixar e-book</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="logo-placeholder logo-placeholder--dark">
+        <a class="nav__link" data-scroll-to="logo" href=""><img src="Imagens/Logo----.png" alt="Logo Secoli">
+      </div>
+      <p id="footer-year-text">© 2026 Secoli. Campanha Black Season — versão de estrutura (wireframe).</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
