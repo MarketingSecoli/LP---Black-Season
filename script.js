@@ -394,12 +394,6 @@ function updateFooterYear() {
   el.textContent = `© ${year} Secoli. Todos os direitos reservados.`;
 }
 
-function setupEbookLink() {
-  const link = document.getElementById("download-ebook");
-  if (!link) return;
-  link.addEventListener("click", (e) => e.preventDefault());
-}
-
 // -----------------------------------------------------------
 // INIT
 // -----------------------------------------------------------
@@ -416,5 +410,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateFooterYear();
-  setupEbookLink();
 });
