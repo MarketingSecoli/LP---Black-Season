@@ -21,6 +21,7 @@
 
 * {
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 html {
@@ -33,7 +34,6 @@ body {
   color: var(--neutral-900);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 button {
