@@ -90,7 +90,7 @@ img {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("Imagens/Reduzir_tamanho_da_mulher_202608061422.jpeg") center/cover no-repeat;
+    background: url("imagens/Reduzir_tamanho_da_mulher_202608061422.jpeg") center/cover no-repeat;
     opacity: 0.9;
     z-index: -1;
 }

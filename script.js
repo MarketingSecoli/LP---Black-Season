@@ -31,25 +31,25 @@ const applications = [
     id: "kit-boas-vindas",
     title: "Kit de boas-vindas",
     description: "Composição de produtos personalizados para recepção de clientes em campanhas de aquisição.",
-    image: "Imagens/kit boas vindas.jpeg"
+    image: "imagens/kit boas vindas.jpeg"
   },
   {
     id: "compre-e-ganhe",
     title: "Compre e ganhe",
     description: "Brindes aplicados em mecânicas promocionais de compre e ganhe no ponto de venda e e-commerce.",
-    image: "Imagens/compre e ganhe.jpeg"
+    image: "imagens/compre e ganhe.jpeg"
   },
   {
     id: "ativacao-loja",
     title: "Ativação em loja",
     description: "Materiais promocionais personalizados para ativação de marca em lojas físicas e stands.",
-    image: "Imagens/ativação em loja.jpeg"
+    image: "imagens/ativação em loja.jpeg"
   },
   {
     id: "campanha-digital",
     title: "Campanha digital",
     description: "Produtos aplicados em unboxing e campanhas de influenciadores para redes sociais.",
-    image: "Imagens/campanha digital.jpeg"
+    image: "imagens/campanha digital.jpeg"
   },
 ];
 
