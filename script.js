@@ -24,6 +24,13 @@ const personas = [
   "Outro",
 ];
 
+//Navegação
+
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
 //Seção 4 - Aplicações//
 
 const applications = [
@@ -53,70 +60,6 @@ const applications = [
   },
 ];
 
-// -----------------------------------------------------------
-// NAVEGAÇÃO (Header / botões com data-scroll-to)
-// -----------------------------------------------------------
-document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    scrollToId(btn.getAttribute("data-scroll-to"));
-  });
-});
-
-// -----------------------------------------------------------
-// REFLEXÃO — Dobra 2 (opções renderizadas dinamicamente)
-// -----------------------------------------------------------
-const reflectionOptions = [
-  "Pelo maior desconto?",
-  "Pela experiência que criou?",
-  "Pela marca que deixou?",
-];
-
-function renderReflectionOptions() {
-  const container = document.getElementById("reflection-options");
-  if (!container) return;
-
-  container.innerHTML = reflectionOptions
-    .map(
-      (option, index) => `
-      <div class="reflection__option" data-index="${index}" role="checkbox" aria-checked="false" tabindex="0">
-        <span class="reflection__checkbox"></span>
-        <span class="reflection__option-text">${option}</span>
-      </div>
-    `
-    )
-    .join("");
-
-  // Adiciona o comportamento de clique
-  const optionElements = container.querySelectorAll(".reflection__option");
-
-  optionElements.forEach((optionEl) => {
-    optionEl.addEventListener("click", () => toggleOption(optionEl));
-
-    // Acessibilidade: permitir marcar com Enter/Espaço
-    optionEl.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleOption(optionEl);
-      }
-    });
-  });
-}
-
-function toggleOption(optionEl) {
-  const allOptions = optionEl.parentElement.querySelectorAll(".reflection__option");
-  
-  allOptions.forEach((el) => {
-    el.classList.remove("is-checked");
-    el.setAttribute("aria-checked", "false");
-  });
-
-  optionEl.classList.add("is-checked");
-  optionEl.setAttribute("aria-checked", "true");
-}
-
-renderReflectionOptions();
-
-// -----------------------------------------------------------
 // APLICAÇÕES — Dobra 4 (carrossel)
 // -----------------------------------------------------------
 function renderApplications() {
@@ -436,7 +379,14 @@ function updateFooterYear() {
 // INIT
 // -----------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  renderReflectionOptions();
+
+  // NAVEGAÇÃO (Header / botões com data-scroll-to)
+    document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      scrollToId(btn.getAttribute("data-scroll-to"));
+    });
+  });
+
   renderApplications();
   setupCarousel();
 
