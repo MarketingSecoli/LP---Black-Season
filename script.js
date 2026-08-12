@@ -53,13 +53,6 @@ const applications = [
   },
 ];
 
-//ícone de imagem da seção 4//
-
-function scrollToId(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
-
 // -----------------------------------------------------------
 // NAVEGAÇÃO (Header / botões com data-scroll-to)
 // -----------------------------------------------------------
@@ -155,14 +148,59 @@ function setupCarousel() {
   const nextBtn = document.getElementById("carousel-next");
   if (!track || !prevBtn || !nextBtn) return;
 
-  const scrollByCard = (direction) => {
-    const card = track.querySelector("[data-card]");
-    const amount = card ? card.offsetWidth + 24 : 320;
-    track.scrollBy({ left: amount * direction, behavior: "smooth" });
-  };
+  const getCards = () => Array.from(track.querySelectorAll("[data-card]"));
 
-  prevBtn.addEventListener("click", () => scrollByCard(-1));
-  nextBtn.addEventListener("click", () => scrollByCard(1));
+  // Descobre em qual card o usuário está no momento (importante para quando ele arrasta manualmente)
+  function getCurrentIndex(cards) {
+    const scrollLeft = track.scrollLeft;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    cards.forEach((card, i) => {
+      const cardLeft = card.offsetLeft - track.offsetLeft;
+      const distance = Math.abs(cardLeft - scrollLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = i;
+      }
+    });
+
+    return closestIndex;
+  }
+
+  function scrollToIndex(index, cards) {
+    const clampedIndex = Math.max(0, Math.min(index, cards.length - 1));
+    const isLast = clampedIndex === cards.length - 1;
+
+    if (isLast) {
+      // Força ir até o final absoluto, garantindo que o último card fique 100% visível
+      track.scrollTo({
+        left: track.scrollWidth - track.clientWidth,
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    const card = cards[clampedIndex];
+    track.scrollTo({
+      left: card.offsetLeft - track.offsetLeft,
+      behavior: "smooth",
+    });
+  }
+
+  prevBtn.addEventListener("click", () => {
+    const cards = getCards();
+    if (!cards.length) return;
+    const current = getCurrentIndex(cards);
+    scrollToIndex(current - 1, cards);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const cards = getCards();
+    if (!cards.length) return;
+    const current = getCurrentIndex(cards);
+    scrollToIndex(current + 1, cards);
+  });
 }
 
 // Modal iframe catálogo

@@ -21,7 +21,6 @@
 
 * {
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 html {
@@ -57,12 +56,14 @@ img {
 .section {
   position: relative;
   padding: 96px 0;
+  overflow: hidden;
 }
 
 .section--gray { 
   position: relative;
   margin-bottom: 2%;
   margin-top: 2%;
+  overflow: hidden;
 }
 
 .background {
@@ -310,19 +311,19 @@ img {
   align-items: center;
   gap: 16px;
   border-radius: 12px;
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--amber-100);
   padding: 20px 24px;
   transition: border-color 0.2s ease;
 }
 
-.reflection__option:hover { border-color: var(--neutral-900); }
+.reflection__option:hover { border-color: var(--neutral-500); }
 
 .reflection__checkbox {
   flex-shrink: 0;
   height: 24px;
   width: 24px;
   border-radius: 6px;
-  border: 2px solid var(--neutral-400);
+  border: 2px solid var(--amber-100);
 }
 
 .reflection__option-text {
@@ -332,7 +333,7 @@ img {
 }
 
 .reflection__option.is-checked .reflection__checkbox {
-  background-color: var(--neutral-400);
+  background-color: var(--amber-100);
 }
 
 /* Solução — Dobra 3*/
@@ -368,8 +369,9 @@ img {
   margin: 0 auto 48px;
   padding: 0 24px;
   display: flex;
-  flex-direction: column;
   gap: 16px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .app-card__image {
@@ -382,7 +384,6 @@ img {
 .carousel-controls {
   display: flex;
   gap: 8px;
-  align-self: flex-start;
 }
 
 .carousel-btn {
@@ -411,7 +412,7 @@ img {
 .carousel-track {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px 16px;
+  padding: 0 0 16px 24px;
   display: flex;
   gap: 24px;
   overflow-x: auto;
@@ -420,6 +421,11 @@ img {
 }
 
 .carousel-track::-webkit-scrollbar { display: none; }
+
+.carousel-track::after {
+  content: "";
+  flex: 0 0 80px;
+}
 
 .app-card {
   flex-shrink: 0;
@@ -483,7 +489,7 @@ img {
 
 .catalog-box__btn { margin-top: 32px; }
 
-/*modal catalogo*/
+/*Modal Catálogo*/
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -520,20 +526,32 @@ img {
     transition: transform 0.4s ease;
     transform: scale(0.9);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-overlay.active .modal-content {
     transform: scale(1);
 }
 
+/* Cabeçalho que cobre a barra nativa do Google Drive */
+.modal-header {
+    height: 56px;
+    min-height: 56px;
+    background: var(--amber-100);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 16px;
+    position: relative;
+    z-index: 10;
+}
+
 .close-modal {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+    position: static;
     font-size: 24px;
     color: var(--texto-escuro);
     cursor: pointer;
-    z-index: 10;
     transition: all 0.3s ease;
     width: 40px;
     height: 40px;
@@ -541,8 +559,9 @@ img {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(255,255,255,0.9);
+    background: var(--branco);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding-bottom: 6px;
 }
 
 .close-modal:hover {
@@ -550,9 +569,19 @@ img {
     color: var(--branco);
 }
 
+/* Wrapper que "corta" a parte de cima do iframe */
+.modal-iframe-wrapper {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
 #iframe-catalogo {
+    position: absolute;
+    top: -56px; /* empurra o iframe pra cima, escondendo a barra do Drive */
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 56px); /* compensa o deslocamento */
     border: none;
     display: block;
 }
@@ -562,6 +591,7 @@ body.modal-open {
     position: fixed;
     width: 100%;
 }
+
 
 /* Tablet */
 @media (max-width: 1024px) {
@@ -607,7 +637,10 @@ body.modal-open {
 }
 
 @media (min-width: 640px) {
-  .manifesto__watermark { font-size: 16rem; }
+  .manifesto__watermark { 
+    font-size: 16rem;
+    opacity: 0.7; 
+  }
 }
 
 .manifesto__wrap {
@@ -989,4 +1022,24 @@ body.modal-open {
   .lead-form .btn--dark {
     width: 300px;
   }
+
+  .light {
+    top: 50px;
+    right: 80px;
+    width: 200px;
+  }
+
+  .carousel-track {
+    margin: 0 10px;
+  }
+
+    .applications__header {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .carousel-controls {
+    align-self: flex-end;
+  }
+
 }
