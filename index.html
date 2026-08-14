@@ -195,7 +195,8 @@
     <section id="conversao" class="section section--gray">
 
       <!-- Formulário oculto apenas para o Netlify detectar os campos no build -->
-<form name="contato-secoli" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<form name="contato-secoli" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="contato-secoli" />
   <input type="text" name="nome" />
   <input type="email" name="email" />
   <input type="text" name="empresa" />
@@ -209,7 +210,6 @@
   <textarea name="mensagem"></textarea>
   <input type="text" name="bot-field" />
 </form>
-
       <div class="conversion__grid">
         <div class="conversion__content">
           <h2 class="section-title">Vamos criar uma campanha que vá além do desconto?</h2>
