@@ -308,6 +308,14 @@ img {
   padding: 10px 20px;
   border-radius: 12px;
   border: 2px solid var(--amber-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reflexoes img {
+  width: 85px;
+  margin-right: 20px;
 }
 
 .reflexoes p {
