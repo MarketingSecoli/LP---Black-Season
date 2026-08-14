@@ -942,6 +942,14 @@ body.modal-open {
   .lead-form {
     width: 400px;
   }
+
+  .perguntas {
+    width: 1000px;
+  }
+
+  .reflexoes {
+    padding: 10px 12px;
+  }
 }
 
 
@@ -1030,4 +1038,17 @@ body.modal-open {
     align-self: flex-end;
   }
 
+  .perguntas {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: -50px;
+  }
+
+  #reflexao .section-title {
+    text-align: center;
+  }
+
+  #solucao .solution__content {
+    margin-top: 70px;
+  }
 }
